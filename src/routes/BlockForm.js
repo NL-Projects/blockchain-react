@@ -1,8 +1,8 @@
 import Form from "../components/Form.js";
 
-function BlockForm({ btnText, lbl1, lbl2, lbl3, ph1, ph2, ph3 }) {
+function BlockForm() {
   return (
-    <div>
+    <div className="blockContainer">
       <Form
         btnText={"Mine"}
         lbl1={"Block: "}
