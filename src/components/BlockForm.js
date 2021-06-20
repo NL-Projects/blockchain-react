@@ -1,5 +1,5 @@
-import Button from "./Button";
 import Line from "./Line";
+import Button from "./Button";
 
 function BlockForm({ btnText }) {
   return (

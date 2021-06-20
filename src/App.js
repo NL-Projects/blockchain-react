@@ -1,11 +1,18 @@
 import BlockForm from "./components/BlockForm";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello from react</h1>
-      <BlockForm btnText={"Mine"} />
-    </div>
+    <Router>
+      <div className="App">
+        <h1>Hello from react</h1>
+        <Switch>
+          <Route path="/block">
+            <BlockForm btnText={"Mine"} />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
