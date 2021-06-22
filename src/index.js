@@ -15,9 +15,11 @@ import BlockChainForm from "./routes/BlockChainForm";
 import VerifySignature from "./routes/VerifySignature";
 import BlockChainTotal from "./routes/BlockChainTotal";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// import SideBar from "./components/SideBar";
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* <SideBar /> */}
     <Router>
       <NavBar />
       <Switch>

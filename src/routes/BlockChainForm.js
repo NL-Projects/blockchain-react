@@ -25,7 +25,7 @@ function BlockChainForm() {
           ph3={"blockChain__blockChain"}
         />
       </div>
-      <div>
+      <div className="blockContainer">
         <Form
           btnText={"Mine"}
           lbl1={"Block: "}

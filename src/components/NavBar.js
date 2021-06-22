@@ -1,36 +1,72 @@
-import { Navbar, Nav } from "react-bootstrap";
+import "../App.css";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+// import { FaBars } from "react-icons/fa";
+// import styled from "styled-components";
 
 const NavBar = () => {
+  //   const Bars = styled(FaBars)`
+  //     display: none;
+  //     color: #f1f7ed;
+  //     @media screen and (max-width: 950px) {
+  //       display: block;
+  //       position: absolute;
+  //       top: 0;
+  //       right: 0;
+  //       transform: translate(-100%, 75%);
+  //       font-size: 1.8rem;
+  //       cursor: pointer;
+  //     }
+  //   `;
+
   return (
-    //   <Navbar bg="light" expand="lg">
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="dark" variant="dark" className="NavMenu">
+      {/* <Bars /> */}
       <LinkContainer to="/">
         <Navbar.Brand>Home</Navbar.Brand>
       </LinkContainer>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <LinkContainer to="/hash">
-            <Nav.Link>Hash</Nav.Link>
-          </LinkContainer>
+        <Nav>
+          <NavDropdown title="Beginners" id="collasible-nav-dropdown">
+            <NavDropdown.Item href="/hash">Hash</NavDropdown.Item>
 
-          <LinkContainer to="/block">
-            <Nav.Link>Block</Nav.Link>
-          </LinkContainer>
+            <NavDropdown.Item href="/block">Block</NavDropdown.Item>
 
-          <LinkContainer to="/blockchain">
-            <Nav.Link>BlockChain</Nav.Link>
-          </LinkContainer>
+            <NavDropdown.Item href="/blockchain">BlockChain</NavDropdown.Item>
 
-          <LinkContainer to="/distributed">
-            <Nav.Link>Distributed</Nav.Link>
-          </LinkContainer>
+            <NavDropdown.Item href="/distributed">Distributed</NavDropdown.Item>
 
-          <LinkContainer to="/tokens">
-            <Nav.Link>Tokens</Nav.Link>
-          </LinkContainer>
+            <NavDropdown.Item href="/tokens">Tokens</NavDropdown.Item>
 
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="#action/3.4">
+              Separated link
+            </NavDropdown.Item>
+          </NavDropdown>
+
+          <NavDropdown title="Advanced" id="collasible-nav-dropdown">
+            <NavDropdown.Item href="/keys">Keys</NavDropdown.Item>
+
+            <NavDropdown.Item href="/coinbase">CoinBase</NavDropdown.Item>
+
+            <NavDropdown.Item href="/transactions">
+              Transactions
+            </NavDropdown.Item>
+
+            <NavDropdown.Item href="/verifysignature">
+              Verify&Signature
+            </NavDropdown.Item>
+
+            <NavDropdown.Item href="/blockchaintotal">
+              BlockChain_Total
+            </NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="#action/3.4">
+              Separated link
+            </NavDropdown.Item>
+          </NavDropdown>
+          {/* 
           <LinkContainer to="/coinbase">
             <Nav.Link>CoinBase</Nav.Link>
           </LinkContainer>
@@ -40,7 +76,7 @@ const NavBar = () => {
           </LinkContainer>
 
           <LinkContainer to="/verifysignature">
-            <Nav.Link>Verify & Signature</Nav.Link>
+            <Nav.Link>Verify&Signature</Nav.Link>
           </LinkContainer>
 
           <LinkContainer to="/transactions">
@@ -49,7 +85,7 @@ const NavBar = () => {
 
           <LinkContainer to="/blockchaintotal">
             <Nav.Link>BlockChain_Total</Nav.Link>
-          </LinkContainer>
+          </LinkContainer> */}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
