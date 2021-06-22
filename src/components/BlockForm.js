@@ -1,7 +1,7 @@
-import Line from "../components/Line";
-import Button from "../components/Button";
+import Line from "./Line";
+import Button from "./Button";
 
-function Form({ btnText, lbl1, lbl2, lbl3, ph1, ph2, ph3 }) {
+function BlockForm({ btnText, lbl1, lbl2, lbl3, ph1, ph2, ph3 }) {
   return (
     <form>
       <Line lable={lbl1} placeholder={ph1} />
@@ -13,4 +13,4 @@ function Form({ btnText, lbl1, lbl2, lbl3, ph1, ph2, ph3 }) {
   );
 }
 
-export default Form;
+export default BlockForm;

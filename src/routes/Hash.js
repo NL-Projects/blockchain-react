@@ -1,5 +1,12 @@
+import SHAform from "../components/SHAform.js";
+
 function Hash() {
-  return <div>hashhashhashhash</div>;
+  return (
+    <div>
+      <h1 className="toppic">SHA256 Hash</h1>
+      <SHAform />
+    </div>
+  );
 }
 
 export default Hash;

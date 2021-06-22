@@ -1,9 +1,9 @@
-import Form from "../components/Form.js";
+import BlockForm from "../components/BlockForm.js";
 
-function BlockForm() {
+function Block() {
   return (
-    <div className="blockContainer">
-      <Form
+    <div className="Container">
+      <BlockForm
         btnText={"Mine"}
         lbl1={"Block: "}
         lbl2={"Fucker: "}
@@ -16,4 +16,4 @@ function BlockForm() {
   );
 }
 
-export default BlockForm;
+export default Block;

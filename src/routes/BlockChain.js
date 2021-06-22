@@ -1,9 +1,9 @@
-import Form from "../components/Form.js";
+import Form from "../components/BlockForm.js";
 
 function BlockChainForm() {
   return (
-    <div>
-      <div className="blockContainer">
+    <div className="grid-container">
+      <div className="grid-item">
         <Form
           btnText={"Mine"}
           lbl1={"Block: "}
@@ -14,7 +14,7 @@ function BlockChainForm() {
           ph3={"blockChain__blockChain"}
         />
       </div>
-      <div className="blockContainer">
+      <div className="grid-item">
         <Form
           btnText={"Mine"}
           lbl1={"Block: "}
@@ -25,7 +25,7 @@ function BlockChainForm() {
           ph3={"blockChain__blockChain"}
         />
       </div>
-      <div className="blockContainer">
+      <div className="grid-item">
         <Form
           btnText={"Mine"}
           lbl1={"Block: "}
