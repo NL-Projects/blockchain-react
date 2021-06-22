@@ -1,4 +1,4 @@
-import "../App.css";
+import "../index.css";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 // import { FaBars } from "react-icons/fa";
