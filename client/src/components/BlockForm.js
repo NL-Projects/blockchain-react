@@ -2,7 +2,6 @@ import "../index.css";
 import Button from "./Button";
 import { useState } from "react";
 const SHA256 = require("crypto-js/sha256");
-// const { BlockChain, Block } = require("../services/blockchain_functionallity");
 
 function BlockForm() {
   const [block, setBlock] = useState({
