@@ -1,15 +1,29 @@
-import Line from "./Line";
-import Button from "./Button";
+// import Line from "./Line";
+import "../index.css";
+import { useState } from "react";
+const SHA256 = require("crypto-js/sha256");
 
-function SHAform({ btnText, lbl1, lbl2, lbl3, ph1, ph2, ph3 }) {
+function SHAform() {
+  const str = "Type text here . . .";
+  const [hashedData, setHashedData] = useState(SHA256(str));
+
   return (
-    <form className="SHAcontainer">
-      <Line lable={lbl1} placeholder={ph1} />
-      <Line lable={lbl2} placeholder={ph2} />
-      <textarea />
-      <Line lable={lbl3} placeholder={ph3} />
-      <Button text={btnText} />
-    </form>
+    <div className="SHAcontainer">
+      <textarea
+        className="sha256Data"
+        placeholder={str}
+        onChange={(e) => setHashedData(SHA256(e.target.value))}
+      />
+      <span>
+        Hash:
+        <input
+          className="inputSHALength"
+          type="text"
+          placeholder={hashedData}
+          disabled
+        />
+      </span>
+    </div>
   );
 }
 

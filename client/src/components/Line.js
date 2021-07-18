@@ -3,7 +3,7 @@ function Line({ lable, placeholder }) {
     <div>
       <span>
         {lable}
-        <input name="test" id="test" type="text" placeholder={placeholder} />
+        <input name="test" type="text" placeholder={placeholder} disabled />
       </span>
     </div>
   );

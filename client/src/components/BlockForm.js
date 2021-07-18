@@ -1,15 +1,40 @@
-import Line from "./Line";
 import Button from "./Button";
+import "../index.css";
+const { BlockChain, Block } = require("../models/blockchain_functionallity");
 
-function BlockForm({ btnText, lbl1, lbl2, lbl3, ph1, ph2, ph3 }) {
+function BlockForm() {
+  // const [blockChain, setBlockChain] = useState(new BlockChain());
+  // const [block, setBlock] = useState(blockChain.getLatestBlock());
+  // blockChain.addBlock(new Block(1, "20/01/2019", { amount: 4 }));
+  // blockChain.addBlock(new Block(2, "20/02/2019", { amount: 8 }));
+
   return (
-    <form>
-      <Line lable={lbl1} placeholder={ph1} />
-      <Line lable={lbl2} placeholder={ph2} />
-      <textarea />
-      <Line lable={lbl3} placeholder={ph3} />
-      <Button text={btnText} />
-    </form>
+    <div>
+      <div>
+        Block:
+        <input className="inputBlockLength" type="text" placeholder="block" />
+      </div>
+      <div>
+        Nounce:
+        <input className="inputBlockLength" type="text" placeholder="" />
+      </div>
+      <div>
+        Data:
+        <form>
+          <textarea className="blockData" placeholder="" />
+          <span>
+            Hash:
+            <input
+              className="inputBlockLength"
+              type="text"
+              // placeholder={hashedData}
+              disabled
+            />
+          </span>
+          <Button text="Mine" />
+        </form>
+      </div>
+    </div>
   );
 }
 

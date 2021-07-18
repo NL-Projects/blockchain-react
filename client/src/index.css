@@ -107,3 +107,24 @@ code {
   overflow: auto;
   min-height: 50px;
 }
+
+.sha256Data {
+  width: 700px;
+  height: 200px;
+}
+
+.blockData {
+  width: 400px;
+  height: 200px;
+}
+
+.inputSHALength {
+  margin-left: 10px;
+  width: 650px;
+}
+
+.inputBlockLength {
+  margin-left: 10px;
+  margin-top: 7px;
+  width: 350px;
+}
