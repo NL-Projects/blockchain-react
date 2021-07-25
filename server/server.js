@@ -19,15 +19,13 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 // Cross-origin resource sharing
+
 app.use(cors());
 
 // Static folder and files
 // app.use(express.static("public"));
 
 // routers
-// const blocksRouter = require("./routes/block");
-// app.use("/block", blocksRouter);
-
 const operationsRouter = require("./routes/operations");
 app.use("/operations", operationsRouter);
 

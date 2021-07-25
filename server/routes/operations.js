@@ -4,7 +4,7 @@ const { Block } = require("../logic/blockchain");
 
 const SHA256 = require("crypto-js/sha256");
 
-router.get("/sha256", (req, res) => {
+router.post("/sha256", (req, res) => {
   res.json({
     hash: SHA256(req.body.data).toString(),
   });
@@ -19,8 +19,8 @@ router.get("/mine", (req, res) => {
   );
   newBlock.mineBlock(4);
   res.json({
-      "nonce":newBlock.nonce,
-      "hash":newBlock.hash.toString()
+      nonce:newBlock.nonce,
+      hash:newBlock.hash.toString()
     });
 });
 

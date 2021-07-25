@@ -17,7 +17,7 @@ code {
 }
 
 .Container {
-  max-width: 500px;
+  max-width: 700px;
   margin: 20px auto;
   overflow: auto;
   min-height: 300px;
@@ -71,11 +71,12 @@ code {
 
 .btn {
   display: inline-block;
-  background: #000;
+  background: steelblue;
   color: #fff;
   border: none;
   padding: 10px 20px;
   margin: 5px;
+  margin-top: 15px;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
@@ -106,4 +107,30 @@ code {
   margin: 10px auto;
   overflow: auto;
   min-height: 50px;
+}
+
+.sha256Data {
+  width: 700px;
+  height: 200px;
+}
+
+.blockData {
+  margin-left: 50px;
+  width: 400px;
+  height: 200px;
+}
+
+.inputSHALength {
+  margin-left: 10px;
+  width: 650px;
+}
+
+.inputBlockLength {
+  margin-left: 10px;
+  margin-top: 7px;
+  width: 550px;
+}
+
+.blocklbl {
+  padding: 8px;
 }

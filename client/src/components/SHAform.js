@@ -1,15 +1,41 @@
-import Line from "./Line";
-import Button from "./Button";
+// import Line from "./Line";
+import "../index.css";
+import { useState, useEffect } from "react";
+const axios = require("axios");
 
-function SHAform({ btnText, lbl1, lbl2, lbl3, ph1, ph2, ph3 }) {
+const REQUEST_URL = "http://localhost:3001/operations/sha256";
+
+function SHAform() {
+  const str = "Type text here . . .";
+  const [hashedData, setHashedData] = useState("");
+
+  // recieves data to send and updates the hash field
+  const fetchHash = async (data) => {
+    setHashedData(
+      await axios.post(REQUEST_URL, {data}).then((res) => res.data.hash)
+    );
+  };
+
+  // runs once on mount
+  useEffect(() => fetchHash(""), []);
+
   return (
-    <form className="SHAcontainer">
-      <Line lable={lbl1} placeholder={ph1} />
-      <Line lable={lbl2} placeholder={ph2} />
-      <textarea />
-      <Line lable={lbl3} placeholder={ph3} />
-      <Button text={btnText} />
-    </form>
+    <div className="SHAcontainer">
+      <textarea
+        className="sha256Data"
+        placeholder={str}
+        onChange={(e)=>fetchHash(e.target.value)}
+      />
+      <span>
+        Hash:
+        <input
+          className="inputSHALength"
+          type="text"
+          placeholder={hashedData}
+          disabled
+        />
+      </span>
+    </div>
   );
 }
 

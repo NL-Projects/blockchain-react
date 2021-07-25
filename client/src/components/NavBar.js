@@ -1,35 +1,18 @@
 import "../index.css";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-// import { FaBars } from "react-icons/fa";
-// import styled from "styled-components";
 
 const NavBar = () => {
-  //   const Bars = styled(FaBars)`
-  //     display: none;
-  //     color: #f1f7ed;
-  //     @media screen and (max-width: 950px) {
-  //       display: block;
-  //       position: absolute;
-  //       top: 0;
-  //       right: 0;
-  //       transform: translate(-100%, 75%);
-  //       font-size: 1.8rem;
-  //       cursor: pointer;
-  //     }
-  //   `;
-
   return (
     <Navbar bg="dark" variant="dark" className="NavMenu">
-      {/* <Bars /> */}
       <LinkContainer to="/">
-        <Navbar.Brand>Home</Navbar.Brand>
+        <Navbar.Brand>Hash</Navbar.Brand>
       </LinkContainer>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav>
           <NavDropdown title="Beginners" id="collasible-nav-dropdown">
-            <NavDropdown.Item href="/hash">Hash</NavDropdown.Item>
+            {/* <NavDropdown.Item href="/hash">Hash</NavDropdown.Item> */}
 
             <NavDropdown.Item href="/block">Block</NavDropdown.Item>
 
