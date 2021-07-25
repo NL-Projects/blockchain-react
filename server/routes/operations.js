@@ -10,12 +10,13 @@ router.post("/sha256", (req, res) => {
   });
 });
 
-router.get("/mine", (req, res) => {
+router.post("/mine", (req, res) => {
+  req = req.body.data;
+  console.log(req);
   let newBlock = new Block(
-    req.body.index,
-    Date.now(),
-    req.body.data,
-    req.body.previousHash
+    req.index,
+    req.data,
+    req.previousHash
   );
   newBlock.mineBlock(4);
   res.json({
