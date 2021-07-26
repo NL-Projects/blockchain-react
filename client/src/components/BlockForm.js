@@ -1,95 +1,50 @@
 import "../index.css";
 import Button from "./Button";
-import { useState,useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 const axios = require("axios");
 
-const REQUEST_URL = "http://localhost:3001/operations/mine";
+const MINE_REQ_URL = "http://localhost:3001/operations/mine";
+const SHA_REQ_URL = "http://localhost:3001/operations/sha256";
 
 function BlockForm() {
   const [hashedData, setHashedData] = useState("");
   const [nonce, setNonce] = useState("");
+  // grab the text area
+  const textArea = useRef(null);
+
+  // updates hash on every input
+  const handleTextAreaInput = async () => {
+    setHashedData(
+      await axios
+        .post(SHA_REQ_URL, { data: textArea.current.value })
+        .then((res) => res.data.hash)
+    );
+  };
+
+  const handleSubmit = (e) => {
+    // prevent page reload after submit
+    e.preventDefault();
+    fetchMiningResults(textArea.current.value);
+  };
 
   const fetchMiningResults = async (data) => {
-    const res = await axios.post(REQUEST_URL, { data });
+    const res = await axios.post(MINE_REQ_URL, { data });
     setNonce(res.data.nonce);
     setHashedData(res.data.hash);
-    console.log(res.data);
   };
-  
-  useEffect(() => fetchMiningResults({index:"1",data:""}), []);
-  // const [block, setBlock] = useState({
-  //   index: 1,
-  //   timestamp: "",
-  //   nonce: 0,
-  //   data: "Hello world",
-  //   // hash: SHA256(1, "", 12, JSON.stringify("Hello world")).toString(),
-  //   hash: "",
-  //   // transactions: "",
-  //   // previousHash: "",
-  // });
 
-  // const index = block.index;
-  // const timestamp = block.timestamp;
-  // const nounce = block.nonce;
-  // const data = block.data;
-
-  // console.log(block);
-
-  // function calculateHash(index, timestamp, nounce, data) {
-  //   return ""
-  //   // SHA256(index + timestamp + nounce + JSON.stringify(data)).toString();
-  // }
-
-  // function setIndex(e) {
-  //   const value = e.target.value;
-  //   const name = e.target.name;
-  //   setBlock((prevBlock) => ({
-  //     ...prevBlock,
-  //     [name]: value,
-  //     hash: calculateHash(index, timestamp, nounce, data),
-  //   }));
-  // }
-
-  // function setNounce(e) {
-  //   const value = e.target.value;
-  //   const name = e.target.name;
-  //   setBlock((prevBlock) => ({
-  //     ...prevBlock,
-  //     [name]: value,
-  //     hash: calculateHash(index, timestamp, nounce, data),
-  //   }));
-  // }
-
-  // function setData(e) {
-  //   const value = e.target.value;
-  //   const name = e.target.name;
-  //   setBlock((prevBlock) => ({
-  //     ...prevBlock,
-  //     [name]: value,
-  //     hash: calculateHash(index, timestamp, nounce, data),
-  //   }));
-  // }
-
-  // function handleSubmit(difficulty = 5) {
-  //   while (
-  //     block.hash.substring(0, difficulty) !== Array(difficulty + 1).join("0 ")
-  //   ) {
-  //     block.nonce++;
-  //     block.hash = calculateHash(index, timestamp, nounce, data);
-  //   }
-  //   console.log("Block Mined: " + block.hash);
-  // }
+  useEffect(() => fetchMiningResults({ index: "1", data: "" }), []);
 
   return (
     <div>
-      <form action={REQUEST_URL} method="post" onSubmit={()=> false}>
+      <form onSubmit={(e) => handleSubmit(e)} action="">
         <div>
           Block #
-          <input
+          <input readOnly
             className="inputBlockLength"
             type="text"
             name="index"
-            placeholder="1"
+            value="1"
           />
         </div>
         <div>
@@ -97,24 +52,27 @@ function BlockForm() {
           <input
             className="inputBlockLength"
             type="text"
-            name="nounce"
-            placeholder={nonce}
+            name="nonce"
+            value={nonce}
           />
         </div>
         <div>Data</div>
-        <textarea className="blockData" placeholder="Enter text here..." name="data" />
+        <textarea
+          ref={textArea}
+          className="blockData"
+          placeholder="Enter text here..."
+          name="data"
+          onChange={handleTextAreaInput}
+        />
         <div>
-          <div >
+          <div hidden>
             Previous Hash
-            <input
-              className="inputBlockLength"
-              type="text"
-              disabled
-            />
+            <input readOnly className="inputBlockLength" type="text" disabled />
           </div>
           <div>
             Hash
             <input
+              readOnly
               className="inputBlockLength"
               type="text"
               disabled

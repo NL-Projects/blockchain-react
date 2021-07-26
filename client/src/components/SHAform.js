@@ -12,7 +12,7 @@ function SHAform() {
   // recieves data to send and updates the hash field
   const fetchHash = async (data) => {
     setHashedData(
-      await axios.post(REQUEST_URL, {data}).then((res) => res.data.hash)
+      await axios.post(REQUEST_URL, { data }).then((res) => res.data.hash)
     );
   };
 
@@ -24,7 +24,7 @@ function SHAform() {
       <textarea
         className="sha256Data"
         placeholder={str}
-        onChange={(e)=>fetchHash(e.target.value)}
+        onChange={(e) => fetchHash(e.target.value)}
       />
       <span>
         Hash:

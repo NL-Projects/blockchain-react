@@ -11,8 +11,7 @@ router.post("/sha256", (req, res) => {
 });
 
 router.post("/mine", (req, res) => {
-  req = req.body.data;
-  console.log(req);
+  req = req.body;
   let newBlock = new Block(
     req.index,
     req.data,
