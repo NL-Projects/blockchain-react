@@ -1,41 +1,25 @@
-import Form from "../components/BlockForm.js";
+import BlockForm from "../components/BlockForm";
+// import { Container, Row, Col } from "react-bootstrap";
 
 function BlockChainForm() {
+  // const blockchain = [BlockForm, BlockForm, BlockForm];
+  let filledArray = new Array(3).fill({ BlockForm });
+  const listItems = filledArray.map((block, index) => (
+    // <Container>
+    //   <Row>
+    //     <Col>
+    <div className="Container" id="test">
+      <BlockForm key={index}>{block}/</BlockForm>
+    </div>
+    //     </Col>
+    //   </Row>
+    // </Container>
+  ));
+
   return (
-    <div className="grid-container">
-      <div className="grid-item">
-        <Form
-          btnText={"Mine"}
-          lbl1={"Block: "}
-          lbl2={"chain: "}
-          lbl3={"Hash: "}
-          ph1={"Here!"}
-          ph2={"blockChain__blockChain"}
-          ph3={"blockChain__blockChain"}
-        />
-      </div>
-      <div className="grid-item">
-        <Form
-          btnText={"Mine"}
-          lbl1={"Block: "}
-          lbl2={"chain: "}
-          lbl3={"Hash: "}
-          ph1={"Here!"}
-          ph2={"blockChain__blockChain"}
-          ph3={"blockChain__blockChain"}
-        />
-      </div>
-      <div className="grid-item">
-        <Form
-          btnText={"Mine"}
-          lbl1={"Block: "}
-          lbl2={"chain: "}
-          lbl3={"Hash: "}
-          ph1={"Here!"}
-          ph2={"blockChain__blockChain"}
-          ph3={"blockChain__blockChain"}
-        />
-      </div>
+    <div>
+      <h1 className="toppic">Block Chain</h1>
+      {listItems}
     </div>
   );
 }

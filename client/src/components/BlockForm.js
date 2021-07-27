@@ -18,13 +18,20 @@ function BlockForm() {
       await axios
         .post(SHA_REQ_URL, { data: textArea.current.value })
         .then((res) => res.data.hash)
+        .then(
+          (document.getElementById("test").style.backgroundColor =
+            "rgb(255, 156, 156)")
+        )
     );
   };
 
   const handleSubmit = (e) => {
     // prevent page reload after submit
     e.preventDefault();
-    fetchMiningResults(textArea.current.value);
+    fetchMiningResults(textArea.current.value).then(
+      (document.getElementById("test").style.backgroundColor =
+        "rgb(104, 238, 131)")
+    );
   };
 
   const fetchMiningResults = async (data) => {
@@ -40,7 +47,8 @@ function BlockForm() {
       <form onSubmit={(e) => handleSubmit(e)} action="">
         <div>
           Block #
-          <input readOnly
+          <input
+            readOnly
             className="inputBlockLength"
             type="text"
             name="index"
