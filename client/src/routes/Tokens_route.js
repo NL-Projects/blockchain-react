@@ -1,5 +1,11 @@
+import BlockChainForm from "./BlockChain_route";
+
 function Tokens() {
-  return <div>weedweedweedweed</div>;
+  return (
+    <div>
+      <BlockChainForm title="Tokens" />
+    </div>
+  );
 }
 
 export default Tokens;

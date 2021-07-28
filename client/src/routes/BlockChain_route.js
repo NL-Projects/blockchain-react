@@ -1,25 +1,24 @@
 import BlockForm from "../components/BlockForm";
 // import { Container, Row, Col } from "react-bootstrap";
 
-function BlockChainForm() {
+function BlockChainForm({ title = "Block Chain" }) {
   // const blockchain = [BlockForm, BlockForm, BlockForm];
-  let filledArray = new Array(3).fill({ BlockForm });
+  const NUM_OF_BLOCKS = 4;
+  let filledArray = new Array(NUM_OF_BLOCKS).fill({ BlockForm });
+  const flag = false;
+
   const listItems = filledArray.map((block, index) => (
-    // <Container>
-    //   <Row>
-    //     <Col>
-    <div className="Container" id="test">
-      <BlockForm key={index}>{block}/</BlockForm>
+    <div>
+      <BlockForm className="card" key={index} id="block" bool={flag}>
+        {block}/
+      </BlockForm>
     </div>
-    //     </Col>
-    //   </Row>
-    // </Container>
   ));
 
   return (
     <div>
-      <h1 className="toppic">Block Chain</h1>
-      {listItems}
+      <h2 className="toppic">{title}</h2>
+      <div className="scrolling-wrapper">{listItems}</div>
     </div>
   );
 }

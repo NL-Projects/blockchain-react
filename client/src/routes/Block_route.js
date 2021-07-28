@@ -3,8 +3,8 @@ import BlockForm from "../components/BlockForm.js";
 function Block() {
   return (
     <div>
-      <h1 className="toppic">Block</h1>
-      <div className="Container" id="test">
+      <h2 className="toppic">Block</h2>
+      <div>
         <BlockForm />
       </div>
     </div>

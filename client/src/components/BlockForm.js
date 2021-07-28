@@ -6,7 +6,7 @@ const axios = require("axios");
 const MINE_REQ_URL = "http://localhost:3001/operations/mine";
 const SHA_REQ_URL = "http://localhost:3001/operations/sha256";
 
-function BlockForm() {
+function BlockForm({ bool = true }) {
   const [hashedData, setHashedData] = useState("");
   const [nonce, setNonce] = useState("");
   // grab the text area
@@ -19,7 +19,7 @@ function BlockForm() {
         .post(SHA_REQ_URL, { data: textArea.current.value })
         .then((res) => res.data.hash)
         .then(
-          (document.getElementById("test").style.backgroundColor =
+          (document.getElementById("block").style.backgroundColor =
             "rgb(255, 156, 156)")
         )
     );
@@ -29,7 +29,7 @@ function BlockForm() {
     // prevent page reload after submit
     e.preventDefault();
     fetchMiningResults(textArea.current.value).then(
-      (document.getElementById("test").style.backgroundColor =
+      (document.getElementById("block").style.backgroundColor =
         "rgb(104, 238, 131)")
     );
   };
@@ -43,7 +43,7 @@ function BlockForm() {
   useEffect(() => fetchMiningResults({ index: "1", data: "" }), []);
 
   return (
-    <div>
+    <div className="container" id="block">
       <form onSubmit={(e) => handleSubmit(e)} action="">
         <div>
           Block #
@@ -73,7 +73,7 @@ function BlockForm() {
           onChange={handleTextAreaInput}
         />
         <div>
-          <div hidden>
+          <div hidden={bool}>
             Previous Hash
             <input readOnly className="inputBlockLength" type="text" disabled />
           </div>

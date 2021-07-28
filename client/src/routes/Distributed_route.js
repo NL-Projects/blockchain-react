@@ -1,73 +1,29 @@
-import Form from "../components/BlockForm";
+import BlockChainForm from "../routes/BlockChain_route";
 
 function Distributed() {
+  // BlockChainForm
   return (
+    // <div></div>
     <div className="grid-container-dist">
       <div className="grid-item">
-        <Form
-          btnText={"Mine"}
-          lbl1={"Block: "}
-          lbl2={"chain: "}
-          lbl3={"Hash: "}
-          ph1={"Here!"}
-          ph2={"blockChain__blockChain"}
-          ph3={"blockChain__blockChain"}
-        />
+        {/* <h1 className="toppic">pipe1</h1> */}
+        <BlockChainForm title="pipe 1" />
       </div>
       <div className="grid-item">
-        <Form
-          btnText={"Mine"}
-          lbl1={"Block: "}
-          lbl2={"chain: "}
-          lbl3={"Hash: "}
-          ph1={"Here!"}
-          ph2={"blockChain__blockChain"}
-          ph3={"blockChain__blockChain"}
-        />
+        {/* <h1 className="toppic">pipe2</h1> */}
+        <BlockChainForm title="pipe 2" />
       </div>
       <div className="grid-item">
-        <Form
-          btnText={"Mine"}
-          lbl1={"Block: "}
-          lbl2={"chain: "}
-          lbl3={"Hash: "}
-          ph1={"Here!"}
-          ph2={"blockChain__blockChain"}
-          ph3={"blockChain__blockChain"}
-        />
+        {/* <h1 className="toppic">pipe3</h1> */}
+        <BlockChainForm title="pipe 3" />
       </div>
       <div className="grid-item">
-        <Form
-          btnText={"Mine"}
-          lbl1={"Block: "}
-          lbl2={"chain: "}
-          lbl3={"Hash: "}
-          ph1={"Here!"}
-          ph2={"blockChain__blockChain"}
-          ph3={"blockChain__blockChain"}
-        />
+        {/* <h1 className="toppic">pipe4</h1> */}
+        <BlockChainForm title="pipe 4" />
       </div>
       <div className="grid-item">
-        <Form
-          btnText={"Mine"}
-          lbl1={"Block: "}
-          lbl2={"chain: "}
-          lbl3={"Hash: "}
-          ph1={"Here!"}
-          ph2={"blockChain__blockChain"}
-          ph3={"blockChain__blockChain"}
-        />
-      </div>
-      <div className="grid-item">
-        <Form
-          btnText={"Mine"}
-          lbl1={"Block: "}
-          lbl2={"chain: "}
-          lbl3={"Hash: "}
-          ph1={"Here!"}
-          ph2={"blockChain__blockChain"}
-          ph3={"blockChain__blockChain"}
-        />
+        {/* <h1 className="toppic">pipe5</h1> */}
+        <BlockChainForm title="pipe 5" />
       </div>
     </div>
   );

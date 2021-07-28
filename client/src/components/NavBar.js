@@ -15,39 +15,32 @@ const NavBar = () => {
             {/* <NavDropdown.Item href="/hash">Hash</NavDropdown.Item> */}
 
             <NavDropdown.Item href="/block">Block</NavDropdown.Item>
-
-            <NavDropdown.Item href="/blockchain">BlockChain</NavDropdown.Item>
-
-            <NavDropdown.Item href="/distributed">Distributed</NavDropdown.Item>
-
-            <NavDropdown.Item href="/tokens">Tokens</NavDropdown.Item>
-
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">
-              Separated link
-            </NavDropdown.Item>
+            <NavDropdown.Item href="/blockchain">BlockChain</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="/distributed">Distributed</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="/tokens">Tokens</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="/coinbase">CoinBase</NavDropdown.Item>
+            <NavDropdown.Divider />
           </NavDropdown>
 
           <NavDropdown title="Advanced" id="collasible-nav-dropdown">
             <NavDropdown.Item href="/keys">Keys</NavDropdown.Item>
-
-            <NavDropdown.Item href="/coinbase">CoinBase</NavDropdown.Item>
-
+            <NavDropdown.Divider />
             <NavDropdown.Item href="/transactions">
               Transactions
             </NavDropdown.Item>
-
+            <NavDropdown.Divider />
             <NavDropdown.Item href="/verifysignature">
               Verify&Signature
             </NavDropdown.Item>
-
+            <NavDropdown.Divider />
             <NavDropdown.Item href="/blockchaintotal">
               BlockChain_Total
             </NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">
-              Separated link
-            </NavDropdown.Item>
           </NavDropdown>
           {/* 
           <LinkContainer to="/coinbase">

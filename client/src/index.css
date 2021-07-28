@@ -16,19 +16,25 @@ code {
   text-align: center;
 }
 
-.Container {
-  max-width: 700px;
-  margin: 20px auto;
+.container {
+  max-width: 600px;
+  margin: 20px;
   overflow: auto;
   min-height: 300px;
   border: 1px solid steelblue;
   background-color: gainsboro;
+  font-family: "Lato";
   padding: 30px;
+  padding-left: 10px;
   border-radius: 10px;
+  float: none;
+  white-space: normal;
+  vertical-align: top;
 }
 
 .SHAcontainer {
-  max-width: 800px;
+  font-family: "Lato";
+  max-width: 670px;
   margin: 20px auto;
   overflow: auto;
   min-height: 300px;
@@ -37,38 +43,6 @@ code {
   padding: 30px;
   border-radius: 10px;
 }
-
-.grid-container-dist {
-  display: grid;
-  grid-template-columns: 500px 500px 500px;
-  grid-template-rows: 400px 400px;
-  font-family: "Lato";
-  text-align: center;
-  font-size: 1.4em;
-  margin: 40px 30px;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 500px 500px 500px;
-  font-family: "Lato";
-  text-align: center;
-  font-size: 1.4em;
-  margin: 40px 30px;
-}
-
-.grid-item {
-  max-width: 500px;
-  margin: 30px auto;
-  overflow: auto;
-  min-height: 300px;
-  border: 1px solid steelblue;
-  background-color: gainsboro;
-  border-radius: 10px;
-  padding: 20px 40px;
-  align-self: start;
-}
-
 .btn {
   display: inline-block;
   background: steelblue;
@@ -104,33 +78,42 @@ code {
 
 .toppic {
   max-width: 800px;
-  margin: 10px auto;
+  margin: 20px;
   overflow: auto;
   min-height: 50px;
 }
 
 .sha256Data {
-  width: 700px;
+  width: 600px;
   height: 200px;
 }
 
 .blockData {
-  margin-left: 50px;
-  width: 400px;
+  margin-left: 10px;
+  width: 550px;
   height: 200px;
 }
 
 .inputSHALength {
   margin-left: 10px;
-  width: 650px;
+  width: 500px;
 }
 
 .inputBlockLength {
   margin-left: 10px;
-  margin-top: 7px;
+  margin-top: 5px;
   width: 550px;
 }
 
 .blocklbl {
   padding: 8px;
+}
+
+.scrolling-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+.card {
+  flex: 0 0 auto;
 }
