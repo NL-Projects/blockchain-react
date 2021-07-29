@@ -4,7 +4,7 @@ function Block() {
   return (
     <div>
       <h2 className="toppic">Block</h2>
-      <div>
+      <div className="centerDiv">
         <BlockForm />
       </div>
     </div>

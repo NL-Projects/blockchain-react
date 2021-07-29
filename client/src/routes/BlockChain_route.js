@@ -1,15 +1,28 @@
 import BlockForm from "../components/BlockForm";
-// import { Container, Row, Col } from "react-bootstrap";
+
+// const MINE_REQ_URL = "http://localhost:3001/operations/mine";
+// const SHA_REQ_URL = "http://localhost:3001/operations/sha256";
 
 function BlockChainForm({ title = "Block Chain" }) {
-  // const blockchain = [BlockForm, BlockForm, BlockForm];
   const NUM_OF_BLOCKS = 4;
   const flag = false;
   let filledArray = new Array(NUM_OF_BLOCKS).fill({ BlockForm });
 
+  // const val =()=> {
+  //   if (indexCount + 1 > 1)
+  //     val = document.getElementById;
+  // }
+
   const listItems = filledArray.map((block, index) => (
     <div>
-      <BlockForm className="card" key={index} id="block" bool={flag}>
+      <BlockForm
+        className="card"
+        key={index}
+        indexCount={index + 1}
+        // prev={val}
+        id="block"
+        bool={flag}
+      >
         {block}/
       </BlockForm>
     </div>

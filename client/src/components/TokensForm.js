@@ -7,7 +7,7 @@ const axios = require("axios");
 const MINE_REQ_URL = "http://localhost:3001/operations/mine";
 const SHA_REQ_URL = "http://localhost:3001/operations/sha256";
 
-function TokensForm({ val = 3 }) {
+function TokensForm({ val = 3, indexCount }) {
   const [hashedData, setHashedData] = useState("");
   const [nonce, setNonce] = useState("");
   // grab the text area
@@ -53,7 +53,7 @@ function TokensForm({ val = 3 }) {
             className="inputBlockLength"
             type="text"
             name="index"
-            value="1"
+            value={indexCount}
           />
         </div>
         <div>

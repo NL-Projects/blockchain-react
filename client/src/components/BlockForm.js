@@ -5,10 +5,12 @@ const axios = require("axios");
 
 const MINE_REQ_URL = "http://localhost:3001/operations/mine";
 const SHA_REQ_URL = "http://localhost:3001/operations/sha256";
+const ZERO = "0".repeat(64);
 
-function BlockForm({ bool = true }) {
+function BlockForm({ bool = true, prev = ZERO, indexCount }) {
   const [hashedData, setHashedData] = useState("");
   const [nonce, setNonce] = useState("");
+
   // grab the text area
   const textArea = useRef(null);
   const blockDiv = useRef(null);
@@ -19,7 +21,9 @@ function BlockForm({ bool = true }) {
       await axios
         .post(SHA_REQ_URL, { data: textArea.current.value })
         .then((res) => res.data.hash)
-        .then((blockDiv.current.style.backgroundColor = "rgb(255, 156, 156)"))
+        .then(() => {
+          blockDiv.current.style.backgroundColor = "rgb(253, 184, 184)";
+        })
     );
   };
 
@@ -27,7 +31,7 @@ function BlockForm({ bool = true }) {
     // prevent page reload after submit
     e.preventDefault();
     fetchMiningResults(textArea.current.value).then(
-      (blockDiv.current.style.backgroundColor = "rgb(104, 238, 131)")
+      (blockDiv.current.style.backgroundColor = "rgb(183, 248, 196)")
     );
   };
 
@@ -40,16 +44,15 @@ function BlockForm({ bool = true }) {
   useEffect(() => fetchMiningResults({ index: "1", data: "" }), []);
 
   return (
-    <div className="container" ref={blockDiv}>
+    <div className="container" ref={blockDiv} id="test">
       <form onSubmit={(e) => handleSubmit(e)} action="">
         <div>
-          Block #
+          Block
           <input
-            readOnly
             className="inputBlockLength"
             type="text"
             name="index"
-            value="1"
+            value={indexCount}
           />
         </div>
         <div>
@@ -72,7 +75,13 @@ function BlockForm({ bool = true }) {
         <div>
           <div hidden={bool}>
             Previous Hash
-            <input readOnly className="inputBlockLength" type="text" disabled />
+            <input
+              readOnly
+              className="inputBlockLength"
+              type="text"
+              disabled
+              value={prev}
+            />
           </div>
           <div>
             Hash

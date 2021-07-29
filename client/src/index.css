@@ -16,20 +16,39 @@ code {
   text-align: center;
 }
 
+.Nav {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem calc((100vw - 1000px) / 2);
+  z-index: 10;
+  justify-content: flex-start;
+}
+
+.NavMenu {
+  display: flex;
+  align-items: center;
+  margin-right: -24px;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.centerDiv {
+  margin-left: 30%;
+  align-items: center;
+}
+
 .container {
-  max-width: 600px;
-  margin: 20px;
-  overflow: auto;
-  min-height: 300px;
-  border: 1px solid steelblue;
-  background-color: gainsboro;
   font-family: "Lato";
+  margin: 20px;
+  max-width: 600px;
+  min-height: 300px;
+  border: 1px solid rgb(54, 61, 67);
+  border-radius: 10px;
+  background-color: rgb(183, 248, 196);
   padding: 20px;
   padding-left: 10px;
-  border-radius: 10px;
-  float: none;
-  white-space: normal;
-  vertical-align: top;
 }
 
 .SHAcontainer {
@@ -68,24 +87,6 @@ code {
   text-decoration: none;
   font-size: 15px;
   font-family: inherit;
-}
-
-.Nav {
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem calc((100vw - 1000px) / 2);
-  z-index: 10;
-  justify-content: flex-start;
-}
-
-.NavMenu {
-  display: flex;
-  align-items: center;
-  margin-right: -24px;
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
 }
 
 .toppic {
