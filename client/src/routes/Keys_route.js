@@ -1,5 +1,11 @@
+import KeysForm from "../components/KeysForm";
+
 function Keys() {
-  return <div>dubdubdubdubdub</div>;
+  return (
+    <div>
+      <KeysForm />
+    </div>
+  );
 }
 
 export default Keys;

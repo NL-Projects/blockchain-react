@@ -1,6 +1,6 @@
 import React from "react";
 
-function Tx({ numOfRow = 3 }) {
+function Tx({ numOfRows }) {
   var row = (
     <tr>
       <td className="tableLbl">$</td>
@@ -17,7 +17,7 @@ function Tx({ numOfRow = 3 }) {
       </td>
     </tr>
   );
-  let filledArray = new Array(numOfRow).fill(row);
+  let filledArray = new Array(numOfRows).fill(row);
 
   return (
     <div className="tableRow">

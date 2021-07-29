@@ -43,14 +43,26 @@ code {
   padding: 30px;
   border-radius: 10px;
 }
+
+.keyContainer {
+  font-family: "Lato";
+  max-width: 850px;
+  margin: 50px auto;
+  overflow: auto;
+  min-height: 150px;
+  border: 1px solid steelblue;
+  background-color: gainsboro;
+  padding: 30px;
+  border-radius: 10px;
+}
+
 .btn {
   display: inline-block;
   background: steelblue;
   color: #fff;
   border: none;
-  padding: 10px 20px;
   margin: 5px;
-  margin-top: 15px;
+  text-align: center;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
@@ -92,6 +104,13 @@ code {
   margin-left: 10px;
   width: 550px;
   height: 200px;
+  resize: none;
+}
+
+.keyInput {
+  margin: 3px;
+  width: 600px;
+  height: 30px;
 }
 
 .inputSHALength {
@@ -134,4 +153,8 @@ code {
   min-width: 30px;
   text-align: center;
   border: 1px solid black;
+}
+
+.lineSeparator {
+  margin-bottom: 10px;
 }

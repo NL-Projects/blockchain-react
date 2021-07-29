@@ -7,7 +7,7 @@ const axios = require("axios");
 const MINE_REQ_URL = "http://localhost:3001/operations/mine";
 const SHA_REQ_URL = "http://localhost:3001/operations/sha256";
 
-function TokensForm() {
+function TokensForm({ val = 3 }) {
   const [hashedData, setHashedData] = useState("");
   const [nonce, setNonce] = useState("");
   // grab the text area
@@ -66,8 +66,7 @@ function TokensForm() {
           />
         </div>
         <div>Tx:</div>
-        <Tx />
-
+        <Tx numOfRows={val} />
         <div>
           <div>
             Previous Hash

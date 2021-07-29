@@ -29,12 +29,10 @@ const NavBar = () => {
           <NavDropdown title="Advanced" id="collasible-nav-dropdown">
             <NavDropdown.Item href="/keys">Keys</NavDropdown.Item>
             <NavDropdown.Divider />
+            <NavDropdown.Item href="/signature">Signature</NavDropdown.Item>
+            <NavDropdown.Divider />
             <NavDropdown.Item href="/transactions">
               Transactions
-            </NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="/verifysignature">
-              Verify&Signature
             </NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="/blockchaintotal">
