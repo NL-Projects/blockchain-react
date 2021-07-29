@@ -11,6 +11,7 @@ function BlockForm({ bool = true }) {
   const [nonce, setNonce] = useState("");
   // grab the text area
   const textArea = useRef(null);
+  const blockDiv = useRef(null);
 
   // updates hash on every input
   const handleTextAreaInput = async () => {
@@ -18,10 +19,7 @@ function BlockForm({ bool = true }) {
       await axios
         .post(SHA_REQ_URL, { data: textArea.current.value })
         .then((res) => res.data.hash)
-        .then(
-          (document.getElementById("block").style.backgroundColor =
-            "rgb(255, 156, 156)")
-        )
+        .then((blockDiv.current.style.backgroundColor = "rgb(255, 156, 156)"))
     );
   };
 
@@ -29,8 +27,7 @@ function BlockForm({ bool = true }) {
     // prevent page reload after submit
     e.preventDefault();
     fetchMiningResults(textArea.current.value).then(
-      (document.getElementById("block").style.backgroundColor =
-        "rgb(104, 238, 131)")
+      (blockDiv.current.style.backgroundColor = "rgb(104, 238, 131)")
     );
   };
 
@@ -43,7 +40,7 @@ function BlockForm({ bool = true }) {
   useEffect(() => fetchMiningResults({ index: "1", data: "" }), []);
 
   return (
-    <div className="container" id="block">
+    <div className="container" ref={blockDiv}>
       <form onSubmit={(e) => handleSubmit(e)} action="">
         <div>
           Block #
