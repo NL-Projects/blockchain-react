@@ -24,7 +24,7 @@ code {
   border: 1px solid steelblue;
   background-color: gainsboro;
   font-family: "Lato";
-  padding: 30px;
+  padding: 20px;
   padding-left: 10px;
   border-radius: 10px;
   float: none;
@@ -96,7 +96,13 @@ code {
 
 .inputSHALength {
   margin-left: 10px;
-  width: 500px;
+  width: 520px;
+}
+
+.inputTxLength {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 100px;
 }
 
 .inputBlockLength {
@@ -116,4 +122,16 @@ code {
 }
 .card {
   flex: 0 0 auto;
+}
+
+.tableRow {
+  margin: auto;
+  width: 80%;
+  padding: 10px;
+}
+
+.tableLbl {
+  min-width: 30px;
+  text-align: center;
+  border: 1px solid black;
 }

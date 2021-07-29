@@ -3,7 +3,7 @@ import SHAform from "../components/SHAform.js";
 function Hash() {
   return (
     <div>
-      <h1 className="toppic">SHA256 Hash</h1>
+      <h2 className="toppic">SHA256 Hash</h2>
       <SHAform />
     </div>
   );

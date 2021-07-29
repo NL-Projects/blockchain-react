@@ -4,8 +4,8 @@ import BlockForm from "../components/BlockForm";
 function BlockChainForm({ title = "Block Chain" }) {
   // const blockchain = [BlockForm, BlockForm, BlockForm];
   const NUM_OF_BLOCKS = 4;
-  let filledArray = new Array(NUM_OF_BLOCKS).fill({ BlockForm });
   const flag = false;
+  let filledArray = new Array(NUM_OF_BLOCKS).fill({ BlockForm });
 
   const listItems = filledArray.map((block, index) => (
     <div>

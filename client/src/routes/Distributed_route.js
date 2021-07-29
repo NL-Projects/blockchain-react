@@ -5,8 +5,8 @@ function Distributed() {
   return (
     // <div></div>
     <div className="grid-container-dist">
+      <h1 className="toppic">Distributed</h1>
       <div className="grid-item">
-        {/* <h1 className="toppic">pipe1</h1> */}
         <BlockChainForm title="pipe 1" />
       </div>
       <div className="grid-item">
