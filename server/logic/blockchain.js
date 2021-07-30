@@ -29,11 +29,11 @@ class Block {
 }
 class BlockChain {
   constructor(difficulty = 0) {
-    this.chain = [this.createGenesisBlock];
+    this.chain = [this.createGenesisBlock()];
     this.difficulty = difficulty;
   }
   createGenesisBlock() {
-    return new Block(0, "5/7/2021", "Genesis Block", "0");
+    return new Block(0, "",[], "0".repeat(64));
   }
   getLatestBlock() {
     return this.chain[this.chain.length - 1];
@@ -41,7 +41,7 @@ class BlockChain {
   addBlock(newBlock) {
     newBlock.previousHash = this.getLatestBlock().hash;
     newBlock.hash = newBlock.calculateHash();
-    this.chain.push(block);
+    this.chain.push(newBlock);
   }
 }
 class Transaction {
