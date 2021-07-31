@@ -1,37 +1,42 @@
 import BlockForm from "../components/BlockForm";
-
+import axios from "axios";
+import { useState, useEffect } from "react";
 // const MINE_REQ_URL = "http://localhost:3001/operations/mine";
-// const SHA_REQ_URL = "http://localhost:3001/operations/sha256";
+const BLOCKCHAIN_GET_URL = "http://localhost:3001/block/chain";
 
 function BlockChainForm({ title = "Block Chain" }) {
+  const [blockChain, setblockChain] = useState({ chain: [], difficuty: 4 });
   const NUM_OF_BLOCKS = 4;
   const flag = false;
   let filledArray = new Array(NUM_OF_BLOCKS).fill({ BlockForm });
 
-  // const val =()=> {
-  //   if (indexCount + 1 > 1)
-  //     val = document.getElementById;
-  // }
+  const fetchBlockChain = async () => {
+    setblockChain(await axios.get(BLOCKCHAIN_GET_URL).then((res) => res.data));
+    console.log(blockChain);
+  };
 
-  const listItems = filledArray.map((block, index) => (
-    <div>
-      <BlockForm
-        className="card"
-        key={index}
-        indexCount={index + 1}
-        // prev={val}
-        id="block"
-        bool={flag}
-      >
-        {block}/
-      </BlockForm>
-    </div>
-  ));
+  useEffect(() => fetchBlockChain(), []);
 
   return (
     <div>
       <h2 className="toppic">{title}</h2>
-      <div className="scrolling-wrapper">{listItems}</div>
+      <div className="scrolling-wrapper">
+        {blockChain.chain != [] &&
+          blockChain.chain.map((block, index) => (
+            <div>
+              <BlockForm
+                className="card"
+                key={index}
+                indexCount={block.index+1}
+                nonce={block.nonce}
+                prev={block.previousHash}
+                hash={block.hash}
+                id="block"
+                bool={flag}
+              />
+            </div>
+          ))}
+      </div>
     </div>
   );
 }

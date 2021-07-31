@@ -7,8 +7,11 @@ const { BlockchainModel } = require("../models/schemas");
 const DIFFICULTY = 4;
 const SIZE = 5;
 blockChainLogic = new BlockChain(DIFFICULTY);
+blockChainLogic.getLatestBlock().mineBlock(DIFFICULTY);
+
 for (let i = 1; i < SIZE; i++) {
-  blockChainLogic.addBlock(new Block(i, "", [], ""));
+  blockChainLogic.addBlock(new Block(i, "", "", ""));
+  blockChainLogic.getLatestBlock().mineBlock(DIFFICULTY);
 }
 // Init blockchain collection
 (async () => {
@@ -25,7 +28,7 @@ for (let i = 1; i < SIZE; i++) {
 
 // retrieves an initial chain stored on db
 router.get("/chain", async (req, res) => {
-  res.json(await BlockchainModel.find());
+  res.json(await BlockchainModel.findOne());
 });
 
 module.exports = router;

@@ -33,7 +33,7 @@ class BlockChain {
     this.difficulty = difficulty;
   }
   createGenesisBlock() {
-    return new Block(0, "",[], "0".repeat(64));
+    return new Block(0, "","", "0".repeat(64));
   }
   getLatestBlock() {
     return this.chain[this.chain.length - 1];
