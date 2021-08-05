@@ -1,26 +1,25 @@
-const SHA256 = require("crypto-js/sha256");
-
+import SHA256 from "crypto-js/sha256";
 class Block {
   constructor(index, timestamp, transactions, previousHash = "") {
     this.index = index;
-    this.previousHash = previousHash;
     this.timestamp = timestamp;
+    this.previousHash = previousHash;
     this.transactions = transactions;
     this.hash = this.calculateHash();
+    this.nonce = 0;
   }
-
   calculateHash() {
     return SHA256(
       this.index +
-        this.previousHash +
-        this.timestamp +
-        JSON.stringify(this.transactions)
+      this.nonce +
+      this.timestamp +
+      JSON.stringify(this.transactions)+
+      this.previousHash
     ).toString();
   }
-
   mineBlock(difficulty) {
     while (
-      this.hash.substring(0, difficulty) !== Array(difficulty + 1).join("0 ")
+      this.hash.substring(0, difficulty) !== Array(difficulty + 1).join("0")
     ) {
       this.nonce++;
       this.hash = this.calculateHash();
@@ -28,14 +27,15 @@ class Block {
     console.log("Block Mined: " + this.hash);
   }
 }
-
 class BlockChain {
-  constructor() {
-    this.chain = [this.createGenesisBlock];
-    this.difficulty = 5;
+  constructor(difficulty = 0, createGen = true) {
+    if (createGen) {
+      this.chain = [this.createGenesisBlock()];
+    }
+    this.difficulty = difficulty;
   }
   createGenesisBlock() {
-    return new Block(0, "5/7/2021", "Genesis Block", "0");
+    return new Block(0, "", "", "0".repeat(64));
   }
   getLatestBlock() {
     return this.chain[this.chain.length - 1];
@@ -46,7 +46,6 @@ class BlockChain {
     this.chain.push(newBlock);
   }
 }
-
 class Transaction {
   constructor(fromAddress, toAddress, amount) {
     this.fromAddress = fromAddress;
@@ -54,4 +53,4 @@ class Transaction {
     this.amount = amount;
   }
 }
-module.exports = { Block, BlockChain, Transaction };
+export { Block, BlockChain, Transaction };

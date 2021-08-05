@@ -1,54 +1,32 @@
 import "../index.css";
 import Button from "./Button";
-import { useState, useEffect, useRef } from "react";
-const axios = require("axios");
+import { useRef } from "react";
 
-const MINE_REQ_URL = "http://localhost:3001/operations/mine";
-const SHA_REQ_URL = "http://localhost:3001/operations/sha256";
 const ZERO = "0".repeat(64);
 
-function BlockForm({ bool = true, indexCount = 1, nonce =0,prev=ZERO, hash }) {
-  // const [hashedData, setHashedData] = useState("");
-  // const [nonce, setNonce] = useState(nonceValue);
-
+function BlockForm({
+  indexCount = 1,
+  nonce = 0,
+  hash,
+  prev = ZERO,
+  showPrev,
+  onSubmit,
+  onInput,
+}) {
   // grab the text area
   const textArea = useRef(null);
   const blockDiv = useRef(null);
-  const nonceField = useRef(null);
-  const prevField = useRef(null);
-  const hashField = useRef(null);
-
-  // updates hash on every input
-  const handleTextAreaInput = async () => {
-    hashField.current.value = 
-      await axios
-        .post(SHA_REQ_URL, { data: textArea.current.value })
-        .then((res) => res.data.hash)
-    blockDiv.current.style.backgroundColor = "rgb(253, 184, 184)";
-  };
-
-  const handleSubmit = (e) => {
-    // prevent page reload after submit
-    e.preventDefault();
-    fetchMiningResults(indexCount + nonce + textArea.current.value + prev).then(
-      (blockDiv.current.style.backgroundColor = "rgb(183, 248, 196)")
-    );
-  };
-
-  const fetchMiningResults = async (data) => {
-    const res = await axios.post(MINE_REQ_URL, { data });
-    nonceField.current.value = res.data.nonce;
-    hashField.current.value = res.data.hash;
-  };
-
-  // useEffect(() => fetchMiningResults({ index: "1", data: "" }), []);
 
   return (
     <div className="container" ref={blockDiv} id="test">
-      <form onSubmit={(e) => handleSubmit(e)} action="">
+      <form
+        onSubmit={(e) => onSubmit(e, indexCount, textArea.current.value)}
+        action=""
+      >
         <div>
           Block
           <input
+            readOnly
             className="inputBlockLength"
             type="text"
             name="index"
@@ -58,7 +36,7 @@ function BlockForm({ bool = true, indexCount = 1, nonce =0,prev=ZERO, hash }) {
         <div>
           Nonce
           <input
-            ref={nonceField}
+            readOnly
             className="inputBlockLength"
             type="text"
             name="nonce"
@@ -71,13 +49,12 @@ function BlockForm({ bool = true, indexCount = 1, nonce =0,prev=ZERO, hash }) {
           className="blockData"
           placeholder="Enter text here..."
           name="data"
-          onChange={handleTextAreaInput}
+          onChange={(e) => onInput(e, indexCount, textArea.current.value)}
         />
         <div>
-          <div hidden={bool}>
+          <div hidden={!showPrev}>
             Previous Hash
             <input
-              ref={prevField}
               readOnly
               className="inputBlockLength"
               type="text"
@@ -88,7 +65,6 @@ function BlockForm({ bool = true, indexCount = 1, nonce =0,prev=ZERO, hash }) {
           <div>
             Hash
             <input
-            ref={hashField}
               readOnly
               className="inputBlockLength"
               type="text"

@@ -1,11 +1,11 @@
-import BlockForm from "../components/BlockForm.js";
+import BlockChainForm from "../components/BlockChainForm";
 
 function Block() {
   return (
     <div>
       <h2 className="toppic">Block</h2>
       <div className="centerDiv">
-        <BlockForm />
+        <BlockChainForm showPrev={false}/>
       </div>
     </div>
   );
