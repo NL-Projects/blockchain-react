@@ -5,10 +5,12 @@ import { BlockChain, Block } from "../services/blockchain_lib";
 function BlockChainForm({ length = 1, showPrev = true }) {
   const [blockChain, setblockChain] = useState({ chain: [], difficuty: 4 });
 
-  const initBlockChain = async () => {
+  const initBlockChain = () => {
     let newBlockChain = new BlockChain(4);
+    newBlockChain.chain[0].mineBlock(newBlockChain.difficulty);
     for (let i = 1; i < length; i++) {
       newBlockChain.addBlock(new Block(i, "", "", ""));
+      newBlockChain.chain[i].mineBlock(newBlockChain.difficulty);
     }
     setblockChain(newBlockChain);
   };
