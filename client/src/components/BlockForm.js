@@ -1,6 +1,6 @@
 import "../index.css";
 import Button from "./Button";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const ZERO = "0".repeat(64);
 
@@ -12,13 +12,23 @@ function BlockForm({
   showPrev,
   onSubmit,
   onInput,
+  isValid
 }) {
+  // const [isValid, setisValid] = useState(true);
+  let hasChangedState = false;
   // grab the text area
-  const textArea = useRef(null);
+  const textArea = useRef("");
   const blockDiv = useRef(null);
+  const nonceField = useRef(0);
 
+  // useEffect(() => setisValid(false), [textArea.current.value]);
+  // useEffect(() => setisValid(true), [nonce]);
   return (
-    <div className="container" ref={blockDiv} id="test">
+    <div
+      className={`container ${isValid ? "validBlock" : "invalidBlock"}`}
+      ref={blockDiv}
+      id="test"
+    >
       <form
         onSubmit={(e) => onSubmit(e, indexCount, textArea.current.value)}
         action=""
@@ -36,6 +46,7 @@ function BlockForm({
         <div>
           Nonce
           <input
+          ref={nonceField}
             readOnly
             className="inputBlockLength"
             type="text"

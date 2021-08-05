@@ -51,6 +51,13 @@ code {
   padding-left: 10px;
 }
 
+.validBlock {
+  background-color: rgb(183, 248, 196);
+}
+.invalidBlock {
+  background-color: rgb(253, 184, 184)
+}
+
 .SHAcontainer {
   font-family: "Lato";
   max-width: 670px;

@@ -7,14 +7,15 @@ class Block {
     this.transactions = transactions;
     this.hash = this.calculateHash();
     this.nonce = 0;
+    this.isValid = false;
   }
   calculateHash() {
     return SHA256(
       this.index +
-      this.nonce +
-      this.timestamp +
-      JSON.stringify(this.transactions)+
-      this.previousHash
+        this.nonce +
+        this.timestamp +
+        JSON.stringify(this.transactions) +
+        this.previousHash
     ).toString();
   }
   mineBlock(difficulty) {
