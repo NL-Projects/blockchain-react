@@ -7,7 +7,7 @@ class Block {
     this.transactions = transactions;
     this.hash = this.calculateHash();
     this.nonce = 0;
-    this.isValid = false;
+    this.isValid = true;
   }
   calculateHash() {
     return SHA256(

@@ -5,18 +5,26 @@ const axios = require("axios");
 
 const REQUEST_URL = "http://localhost:3001/operations/sha256";
 
+const EC = require("elliptic").ec;
+const ec = new EC("secp256k1");
+
 function KeysForm() {
   const str = "Type text here . . .";
   const [hashedData, setHashedData] = useState("");
+  const [privateKey, setPrivateKey] = useState(
+    "c13a8e7f680c2b406c9141659e881e5bdb3f125735ded622536e339070ff652f"
+  );
 
-  // recieves data to send and updates the hash field
   const fetchHash = async (data) => {
-    setHashedData(
-      await axios.post(REQUEST_URL, { data }).then((res) => res.data.hash)
-    );
+    await axios
+      .post(REQUEST_URL, { data })
+      .then((res) => setPrivateKey(res.data.hash));
+    const key = ec.keyFromPrivate(privateKey, "hex");
+    setHashedData(key.getPublic("hex"));
   };
 
   // runs once on mount
+
   useEffect(() => fetchHash(""), []);
 
   return (
@@ -30,7 +38,7 @@ function KeysForm() {
             placeholder={str}
             onChange={(e) => fetchHash(e.target.value)}
           />
-          <Button text="Random" type="submit" value="Submit" />
+          <Button text="Random" type="submit" value="Submit" flag={true} />
         </div>
         <span>
           Public Key:

@@ -12,17 +12,13 @@ function BlockForm({
   showPrev,
   onSubmit,
   onInput,
-  isValid
+  isValid,
 }) {
-  // const [isValid, setisValid] = useState(true);
-  let hasChangedState = false;
   // grab the text area
   const textArea = useRef("");
   const blockDiv = useRef(null);
   const nonceField = useRef(0);
 
-  // useEffect(() => setisValid(false), [textArea.current.value]);
-  // useEffect(() => setisValid(true), [nonce]);
   return (
     <div
       className={`container ${isValid ? "validBlock" : "invalidBlock"}`}
@@ -46,7 +42,7 @@ function BlockForm({
         <div>
           Nonce
           <input
-          ref={nonceField}
+            ref={nonceField}
             readOnly
             className="inputBlockLength"
             type="text"

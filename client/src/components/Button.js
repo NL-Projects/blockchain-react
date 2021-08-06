@@ -1,7 +1,7 @@
 import "../index.css";
-function Button({ text, type, value }) {
+function Button({ text, type, value, flag, className = "btn" }) {
   return (
-    <button className="btn" type={type} value={value}>
+    <button className={className} type={type} value={value} disabled={flag}>
       {text}
     </button>
   );

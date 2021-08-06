@@ -15,16 +15,14 @@ import BlockChainForm from "./routes/BlockChain_route";
 import VerifySignature from "./routes/VerifySignature_route";
 import BlockChainTotal from "./routes/BlockChainTotal_route";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import SideBar from "./components/SideBar";
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <SideBar /> */}
     <Router>
       <NavBar />
       <Switch>
         <Route exact path="/" component={Hash} />
-        {/* <Route path="/hash" component={Hash} /> */}
+        <Route path="/hash" component={Hash} />
         <Route path="/block" component={BlockForm} />
         <Route path="/blockchain" component={BlockChainForm} />
         <Route path="/distributed" component={Distributed} />

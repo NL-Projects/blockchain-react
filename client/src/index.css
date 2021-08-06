@@ -45,49 +45,63 @@ code {
   max-width: 600px;
   min-height: 300px;
   border: 1px solid rgb(54, 61, 67);
+  background-color: rgb(207, 245, 215);
   border-radius: 10px;
-  background-color: rgb(183, 248, 196);
   padding: 20px;
   padding-left: 10px;
 }
 
 .validBlock {
-  background-color: rgb(183, 248, 196);
+  background-color: rgb(207, 245, 215);
 }
 .invalidBlock {
-  background-color: rgb(253, 184, 184)
+  background-color: rgb(253, 184, 184);
 }
 
 .SHAcontainer {
-  font-family: "Lato";
+  font-family: "Helvetica";
   max-width: 670px;
   margin: 20px auto;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid steelblue;
-  background-color: gainsboro;
+  border: 1px solid rgb(23, 79, 124);
+  background-color: rgb(247, 247, 247);
   padding: 30px;
   border-radius: 10px;
 }
 
-.keyContainer {
-  font-family: "Lato";
+.verifyContainer {
+  font-family: "Helvetica";
+  /* margin: 20px; */
   max-width: 850px;
+  min-height: 500px;
+  border: 1px solid rgb(218, 218, 218);
+  border-radius: 10px;
+  padding: 20px;
+  padding-left: 10px;
+  margin-left: 20%;
+  align-items: center;
+}
+
+.keyContainer {
+  font-family: "Helvetica";
+  max-width: 860px;
   margin: 50px auto;
   overflow: auto;
   min-height: 150px;
-  border: 1px solid steelblue;
-  background-color: gainsboro;
+  border: 1px solid rgb(23, 79, 124);
+  background-color: rgb(247, 247, 247);
   padding: 30px;
   border-radius: 10px;
 }
 
 .btn {
   display: inline-block;
-  background: steelblue;
+  background: rgb(91, 152, 201);
   color: #fff;
   border: none;
-  margin: 5px;
+  margin: 7px;
+  margin-left: 15px;
   text-align: center;
   border-radius: 5px;
   cursor: pointer;
@@ -115,9 +129,31 @@ code {
   resize: none;
 }
 
+.blockMessage {
+  margin-left: 10%;
+  margin-bottom: 10px;
+  /* margin: 10%; */
+  width: 700px;
+  height: 200px;
+  resize: none;
+}
+
 .keyInput {
   margin: 3px;
   width: 600px;
+  height: 30px;
+}
+
+.keySignInput {
+  margin: 3px;
+  width: 700px;
+  height: 30px;
+}
+
+.keySignInputDisabled {
+  margin: 3px;
+  margin-left: 7px;
+  width: 703px;
   height: 30px;
 }
 
@@ -165,4 +201,16 @@ code {
 
 .lineSeparator {
   margin-bottom: 10px;
+}
+
+.longBTN {
+  display: inline-block;
+  background: rgb(91, 152, 201);
+  color: #fff;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 90px;
+  text-align: center;
+  font-family: inherit;
+  width: 700px;
 }
