@@ -1,3 +1,4 @@
+import React from "react";
 import SHAform from "../components/SHAform.js";
 
 function Hash() {

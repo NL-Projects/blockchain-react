@@ -1,3 +1,4 @@
+import React from "react";
 import TokensChainForm from "../routes/Tokens_route";
 
 function CoinBase() {

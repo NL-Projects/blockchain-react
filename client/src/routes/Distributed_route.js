@@ -1,3 +1,4 @@
+import React from "react";
 import BlockChainForm from "../routes/BlockChain_route";
 
 function Distributed() {

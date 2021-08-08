@@ -1,3 +1,4 @@
+import React from "react";
 import TokensForm from "../components/TokensForm";
 
 function TokensChainForm({ arr = [5, 7, 2, 3], title = "Tokens" }) {

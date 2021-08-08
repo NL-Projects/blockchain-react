@@ -1,6 +1,7 @@
 import "../index.css";
 import Button from "./Button";
 import Tx from "../components/Tx";
+import React from "react";
 import { useState, useEffect, useRef } from "react";
 const axios = require("axios");
 

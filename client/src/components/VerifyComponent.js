@@ -17,21 +17,22 @@ function VerifyComponent() {
           //   onChange={(e) => onInput(e, indexCount, textArea.current.value)}
         />
         <div className="lineSeparator">
-          Private Key:
+          Public Key:
           <input
             className="keySignInput"
             //   placeholder={str}
             //   onChange={(e) => fetchHash(e.target.value)}
           />
-          Public Key:
-          <input
-            className="keySignInputDisabled"
-            type="text"
-            //   placeholder={hashedData}
-            disabled
-          />
+          <div className="marging">
+            Signature:
+            <input
+              className="keySignInput"
+              type="text"
+              //   placeholder={hashedData}
+            />
+          </div>
           <Button
-            text="Sign"
+            text="Verify"
             type="submit"
             value="Submit"
             flag={true}

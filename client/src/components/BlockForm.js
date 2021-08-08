@@ -1,6 +1,6 @@
 import "../index.css";
 import Button from "./Button";
-import { useRef, useState, useEffect } from "react";
+import { React, useRef, useState, useEffect } from "react";
 
 const ZERO = "0".repeat(64);
 

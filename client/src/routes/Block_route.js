@@ -1,3 +1,4 @@
+import React from "react";
 import BlockChainForm from "../components/BlockChainForm";
 
 function Block() {
@@ -5,7 +6,7 @@ function Block() {
     <div>
       <h2 className="toppic">Block</h2>
       <div className="centerDiv">
-        <BlockChainForm showPrev={false}/>
+        <BlockChainForm showPrev={false} />
       </div>
     </div>
   );

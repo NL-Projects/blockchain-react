@@ -1,3 +1,4 @@
+import React from "react";
 // import VerifySignature_component from "../components/VerifySignature_component.js";
 import VerifySignatureComponent from "../components/VerifySignatureComponent";
 

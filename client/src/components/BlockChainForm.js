@@ -1,4 +1,5 @@
 import BlockForm from "../components/BlockForm";
+import React from "react";
 import { useState, useEffect } from "react";
 import { BlockChain, Block } from "../services/blockchain_lib";
 
