@@ -7,9 +7,10 @@ class Block {
     this.transactions = transactions;
     this.hash = this.calculateHash();
     this.nonce = 0;
-    this.isValid = true;
+    this.isValid = false;
   }
   calculateHash() {
+    this.isValid=false;
     return SHA256(
       this.index +
         this.nonce +
@@ -25,6 +26,7 @@ class Block {
       this.nonce++;
       this.hash = this.calculateHash();
     }
+    this.isValid=true;
     console.log("Block Mined: " + this.hash);
   }
 }

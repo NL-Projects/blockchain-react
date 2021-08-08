@@ -29,7 +29,6 @@ function BlockChainForm({ length = 1, showPrev = true }) {
     // update hashes on current and the rest
     for (let i = currentIndex; i < length - 1; i++) {
       bc.chain[i].hash = bc.chain[i].calculateHash();
-      bc.chain[i].isValid = false;
       bc.chain[i + 1].previousHash = bc.chain[i].hash;
       setblockChain(bc);
     }
@@ -47,7 +46,6 @@ function BlockChainForm({ length = 1, showPrev = true }) {
     // insert the new data to the copied block in the chain
     bc.chain[currentIndex].transactions = data;
     bc.chain[currentIndex].mineBlock(bc.difficulty);
-    bc.chain[currentIndex].isValid = true;
     // update the next blocks prevHash, up until length
     if (currentIndex + 1 < length) {
       bc.chain[currentIndex + 1].previousHash = bc.chain[currentIndex].hash;
